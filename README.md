@@ -110,6 +110,8 @@ Description: This pivot table summarizes the number of outages and average outag
 
 ## Assessment of Missingness
 
+### NMAR Analysis
+
 | Column                | Number of Missing Entries |
 | :-------------------- | ------------------------: |
 | OUTAGE.DURATION       |                        58 |
@@ -125,9 +127,41 @@ Description: This pivot table summarizes the number of outages and average outag
 | MONTH                 |                         9 |
 | YEAR                  |                         0 |
 
-It seems like we have a number of missing columns
+It seems like we have a number of missing columns. In particular, the OUTAGE.DURATION column is likely NMAR. It's difficult to assess the reason why it's missing just from observing the data, so we must reason about the data generating process. For example, for a given power outage may have been observed for different lengths, therefore there was no singular value to report for the duration of that outage. This could be due to delays in the powerlines or some other data reporting process, which would make the data NMAR. Therefore, more data and/or analysis is required to assess whether the OUTAGE.DURATION data is NMAR.
 
----
+### Missingness Dependency
+
+We tested the missingness dependency of OUTAGE.DURATION upon two columns: MONTH and CLIMATE.REGION. In other words, we compared whether the distributions of MONTH and CLIMATE were the same when the duration is missing and when the duration is not missing.
+
+<iframe src="assets/missing-month.html" width="800" height="600" frameborder="0"></iframe>
+
+<iframe src="assets/missing-clireg.html" width="800" height="600" frameborder="0"></iframe>
+
+Above we observed the distributions of MONTH and CLIMATE when the duration is missing vs. when it's not missing. It's difficult to determine any missingness dependency here so we tried the following permutation test:
+
+-   Null Hypothesis: The distribution of the test column is the same regardless of whether duration is missing.
+
+-   Alternative Hypothesis: The distribution of the test column is different when duration is missing compared to when it is not missing.
+
+-   Test Statistic: TVD, because both month and climate region are categorical variables.
+
+-   Cutoff: 0.05
+
+**Results:**
+
+Climate Region
+
+-   Observed TVD: 0.2535212947392274
+-   P-value: 0.004
+-   Conclusion: Reject the Null Hypothesis
+
+Month
+
+-   Observed TVD: 0.22267850229522704
+-   P-value: 0.088
+-   Conclusion: Fail to Reject the Null Hypothesis
+
+For the Climate Region, the p-value is less than our cutoff. This means we reject the null hypothesis that the distribution of climate region is the same regardless of whether duration is missing. Therefore, it's likely that the missingness of duration IS dependent upon Climate Region. On the other hand, the Month column did NOT provide significant statistical evidence that the distribution of month is different when duration is missing. Therefore, it's likely that the missingness of duration is NOT dependent upon the Month.
 
 ## Hypothesis Testing
 
