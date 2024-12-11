@@ -302,6 +302,8 @@ To improve upon the baseline model, we introduced two new features engineered fr
 2. **OUTAGE.START.DAYOFWEEK (Quantitative)**:  
    Represents the day of the week when the outage began. Weekends and weekdays often have different patterns of response and workload, which can influence the time taken to resolve outages.
 
+3. **ANOMALY.LEVEL (Quantitative)**: This feature captures the severity of natural events or conditions impacting power outages. Higher anomaly levels often indicate more extreme conditions, such as severe storms, which are likely to result in longer outage durations. By including this feature, the model gains insight into the relationship between environmental extremes and outage recovery times.
+
 These features were added because they directly correspond to temporal factors that can logically affect outage durations, aligning with our understanding of the data-generating process. By incorporating these features, the model gains the ability to capture patterns related to the timing of outages.
 
 ### Model Architecture
