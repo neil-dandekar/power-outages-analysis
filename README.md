@@ -67,13 +67,13 @@ Description:
 
 Plot 1: Outage Duration vs Customers Affected
 
-<iframe src="assets/biv-outage-by-customers.html.html" width="800" height="600" frameborder="0"></iframe>
+<iframe src="assets/biv-outage-vs-customers.html" width="800" height="600" frameborder="0"></iframe>
 
 Description:
 
 Plot 2: Outage Duration by Cause Category
 
-<iframe src="assets/biv-outage-by-cause.html.html" width="800" height="600" frameborder="0"></iframe>
+<iframe src="assets/biv-outage-by-cause.html" width="800" height="600" frameborder="0"></iframe>
 
 Description:
 
