@@ -8,11 +8,34 @@ by Neil Dandekar (nmdandekar@ucsd.edu) and Idhant Kumar (ikumar@ucsd.edu)
 
 In this project, we explored how various factors, like location, affect power outage duration across the United States.
 
+| Column                  | Description                                                                        |
+| ----------------------- | ---------------------------------------------------------------------------------- |
+| `OUTAGE.DURATION`       | Duration of power outage (minutes)                                                 |
+| `OUTAGE.START.DATETIME` | Date and time of beginning of power outage                                         |
+| `NERC.REGION`           | North American Electric Reliability Corporation (NERC) region of the power outage  |
+| `CLIMATE.REGION`        | U.S. Climate region as specified by National Centers for Environmental Information |
+| `CUSTOMERS.AFFECTED`    | Number of customers affected by the power outage event                             |
+| `CAUSE.CATEGORY`        | Categories of all the events causing the major power outages                       |
+| `ANOMALY.LEVEL`         | Gravity of natural disaster on power outage                                        |
+| `U.S._STATE`            | State where the power outage occured                                               |
+| `POPULATION`            | Population of those affected by the power outage                                   |
+| `DEMAND.LOSS.MW`        | Demand loss in megawatts                                                           |
+| `MONTH`                 | Month in which the outage occurred                                                 |
+
 ---
 
 ## Cleaning and EDA
 
 ### Data Cleaning
+
+1. **Clean File + Load Data**
+   The first row of the spreadsheet contained metadata, so we had to remove it and also drop the first row of data which included the units instead of data.
+
+2. **Combine Redundant Columns**
+   The `OUTAGE.START.DATE` and `OUTAGE.START.TIME` were redundant information, so we combined them into `OUTAGE.START.DATETIME`, and used Pandas DateTime objects.
+
+3. **Drop Irrelevant Columns**
+   We dropped the old redundant columns and selected only the relevant columns described earlier which we deemed as possibly useful features for the rest of the project.
 
 Here is the cleaned dataframe:
 
