@@ -47,9 +47,37 @@ Here is the cleaned dataframe:
 |            2550 | 2012-06-19 04:30:00   | MRO         | East North Central |              68200 | severe weather     |          -0.1 | Minnesota   | 5.38044e+06 |            nan |     6 | 2012 |
 |            1740 | 2015-07-18 02:00:00   | MRO         | East North Central |             250000 | severe weather     |           1.2 | Minnesota   | 5.48959e+06 |            250 |     7 | 2015 |
 
-### Univariate Analysis
+### Exploratory Data Analysis (EDA)
+
+#### Univariate Analysis
 
 Plot 1: Distribution of Power Outages by Year
+
+<iframe src="assets/uni-outage-by-year.html" width="800" height="600" frameborder="0"></iframe>
+
+Description:
+
+Plot 2: Distribution of Power Outages Across NERC Regions
+
+<iframe src="assets/uni-outage-by-nerc.html" width="800" height="600" frameborder="0"></iframe>
+
+Description:
+
+#### Bivariate Analysis
+
+Plot 1: Outage Duration vs Customers Affected
+
+<iframe src="assets/biv-outage-by-customers.html.html" width="800" height="600" frameborder="0"></iframe>
+
+Description:
+
+Plot 2: Outage Duration by Cause Category
+
+<iframe src="assets/biv-outage-by-cause.html.html" width="800" height="600" frameborder="0"></iframe>
+
+Description:
+
+#### Interesting Aggregate
 
 Pivot Table:
 
@@ -60,6 +88,8 @@ Pivot Table:
 |                44 |             4271.12 |                 289778 |                  0.590909 |
 |                 1 |                 372 |                    nan |                         0 |
 |                 3 |             895.333 |                 126729 |                  0.666667 |
+
+Description:
 
 ---
 
