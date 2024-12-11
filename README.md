@@ -394,9 +394,3 @@ These groups were selected to evaluate potential disparities in the model’s pr
 ### Conclusion
 
 With a p-value of 0.550, which is greater than the significance level of 0.05, we do not have sufficient evidence to reject the null hypothesis. This suggests that the observed difference in RMSE between the Central and Northeast regions is not statistically significant and could be attributed to random chance. Therefore, the model appears to perform fairly across these two groups, with no strong evidence of bias.
-
----
-
-## Report Conclusion
-
-cqbvx
