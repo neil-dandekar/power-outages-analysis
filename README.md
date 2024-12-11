@@ -6,7 +6,13 @@ by Neil Dandekar (nmdandekar@ucsd.edu) and Idhant Kumar (ikumar@ucsd.edu)
 
 ## Introduction
 
-In this project, we explored how various factors, like location, affect power outage duration across the United States.
+Power outages disrupt millions of lives every year, halting essential services, impacting public safety, and incurring substantial economic costs. In this project, Neil Dandekar and I set out to explore a dataset documenting power outages across the United States, aiming to uncover the key factors influencing outage durations. With climate change intensifying extreme weather events, it's more important than ever to understand the variables that contribute to prolonged outages and how they can be mitigated.
+
+Our project focuses on answering the question: "How do climate regions and outage characteristics influence the length of power outages?"
+
+This question is highly relevant because the duration of an outage affects recovery times, resource allocation, and overall community resilience. By investigating the role of factors such as climate conditions and outage causes, we hope to provide insights that could help strengthen the nation's power grid and improve response strategies in vulnerable regions.
+
+Our dataset contains 1534 rows and 56 columns. Below is a description of the most relevant columns for our project:
 
 | Column                  | Description                                                                        |
 | ----------------------- | ---------------------------------------------------------------------------------- |
@@ -104,19 +110,22 @@ Description: This pivot table summarizes the number of outages and average outag
 
 ## Assessment of Missingness
 
-Here's what a Markdown table looks like. Note that the code for this table was generated _automatically_ from a DataFrame, using
+| Column                | Number of Missing Entries |
+| :-------------------- | ------------------------: |
+| OUTAGE.DURATION       |                        58 |
+| OUTAGE.START.DATETIME |                         9 |
+| NERC.REGION           |                         0 |
+| CLIMATE.REGION        |                         6 |
+| CUSTOMERS.AFFECTED    |                       443 |
+| CAUSE.CATEGORY        |                         0 |
+| ANOMALY.LEVEL         |                         9 |
+| U.S.\_STATE           |                         0 |
+| POPULATION            |                         0 |
+| DEMAND.LOSS.MW        |                       705 |
+| MONTH                 |                         9 |
+| YEAR                  |                         0 |
 
-```py
-print(counts[['Quarter', 'Count']].head().to_markdown(index=False))
-```
-
-| Quarter     | Count |
-| :---------- | ----: |
-| Fall 2020   |     3 |
-| Winter 2021 |     2 |
-| Spring 2021 |     6 |
-| Summer 2021 |     4 |
-| Fall 2021   |    55 |
+It seems like we have a number of missing columns
 
 ---
 
